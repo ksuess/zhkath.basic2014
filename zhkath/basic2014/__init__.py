@@ -1,5 +1,5 @@
 from zope.i18nmessageid import MessageFactory
-from Products.zhkath import config
+from zhkath.basic2014 import config
 
 from Products.Archetypes import atapi
 from Products.CMFCore import utils

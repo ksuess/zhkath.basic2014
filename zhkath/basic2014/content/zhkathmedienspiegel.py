@@ -4,8 +4,8 @@ from zope.component import getMultiAdapter
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import newsitem, link
 from Products.ATContentTypes.content import schemata
-from Products.zhkath.interfaces import Izhkathmedienspiegel
-from Products.zhkath.config import PROJECTNAME
+from zhkath.basic2014.interfaces import Izhkathmedienspiegel
+from zhkath.basic2014.config import PROJECTNAME
 
 copied_fields = {}
 copied_fields['remoteUrl'] = link.ATLinkSchema['remoteUrl'].copy()

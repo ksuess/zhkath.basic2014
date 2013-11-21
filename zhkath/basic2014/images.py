@@ -53,7 +53,7 @@ class RescaleImages(BrowserView):
 
     To trigger this migration code, enter the view URL manually in the browser address bar::
 
-        http://yourhost/site/@@rescale_images
+        http://yourhost/site/@@rescale_images_old
 
     We assume that you are running Zope in the foreground, monitoring the console for messages.
 

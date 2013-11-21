@@ -108,7 +108,7 @@
                     </div>
                     
                     <tal:feedfeederimage tal:condition="python:item_type=='FeedFeederItem'">                        
-                        <tal:define tal:define="getImagesUrls nocall:context/@@utils/getImagesUrls;
+                        <tal:define tal:define="getImagesUrls nocall:context/@@zhkath_utils/getImagesUrls;
                                     item_text python:item_object.getText();
                                     imageurls python:getImagesUrls(item_text)">
                             <a href="#" target="_blank" class="feedfeeder_image"

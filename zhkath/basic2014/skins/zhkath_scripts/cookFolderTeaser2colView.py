@@ -16,7 +16,6 @@ lenbatch = len(batchlist)
 
 # put FeedItem on position 01
 # positions are 00,01,10,11,20,21
-context.plone_log(str([b.portal_type for b in batch]))
 
 ffis = [b for b in batchlist if b.portal_type=="FeedFeederItem"]
 ffi = ffis and ffis[0] or None

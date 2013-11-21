@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <layers>
   <layer
-     name="zhkath"
-     interface="Products.zhkath.browser.interfaces.IThemeSpecific"
+     name="zhkath.basic2014"
+     interface="zhkath.basic2014.browser.interfaces.IThemeSpecific"
      />
 </layers>

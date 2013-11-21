@@ -18,19 +18,19 @@
       -->
  <object name="zhkath_images"
     meta_type="Filesystem Directory View"
-    directory="Products.zhkath:skins/zhkath_images"/>
+    directory="zhkath.basic2014:skins/zhkath_images"/>
  <object name="zhkath_templates"
     meta_type="Filesystem Directory View"
-    directory="Products.zhkath:skins/zhkath_templates"/>
+    directory="zhkath.basic2014:skins/zhkath_templates"/>
  <object name="zhkath_styles"
     meta_type="Filesystem Directory View"
-    directory="Products.zhkath:skins/zhkath_styles"/>
+    directory="zhkath.basic2014:skins/zhkath_styles"/>
  <object name="zhkath_scripts"
     meta_type="Filesystem Directory View"
-    directory="Products.zhkath:skins/zhkath_scripts"/>
+    directory="zhkath.basic2014:skins/zhkath_scripts"/>
  <!--<object name="zhkath_migration"
     meta_type="Filesystem Directory View"
-    directory="Products.zhkath:skins/zhkath_migration"/>-->
+    directory="zhkath.basic2014:skins/zhkath_migration"/>-->
 
 
  <!-- A skin-path in this file corresponds to a Skin Selection in the

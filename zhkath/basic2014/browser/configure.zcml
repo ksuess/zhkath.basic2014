@@ -112,7 +112,7 @@
 
       <browser:page
           for="*"
-          name="utils"
+          name="zhkath_utils"
           class=".views.UtilityView"
           permission="zope2.View"
           allowed_attributes="getImagesUrls"
@@ -121,12 +121,20 @@
           
     <!-- Feedfeeder -->
     
+    <permission
+      id="zhkath.basic2014.UpdateFeed"
+      title="zhkath.basic2014: Update feed"
+      />
     <browser:page
-        name="update_feed_items_kath"
-        class=".feed.UpdateFeedItemsKath"
+        name="update_feed_items_zhkath"
+        class=".feed.UpdateFeedItemsZhkath"
         for="Products.feedfeeder.interfaces.container.IFeedsContainer"
+        permission="zhkath.basic2014.UpdateFeed"
         allowed_interface=".feed.IUpdateFeedItems"
-        permission="feedfeeder.UpdateFeed"
+        layer=".interfaces.IThemeSpecific"
         />
+        <!-- 
+        allowed_interface=".feed.IUpdateFeedItems" 
+        permission="feedfeeder.UpdateFeed"-->
         
 </configure>

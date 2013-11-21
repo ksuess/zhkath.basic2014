@@ -5,4 +5,4 @@ INSTALL zhkath:
 - /@@manage-viewlets: move header-actions up over searchbox
 - site configuration: deactivate automatic tabs generation
 - images configuration: custom sizes teaser to 225:225, banner 977:977 and fullwidth 473:473
-- run @@rescale_images
+- run @@rescale_images_old

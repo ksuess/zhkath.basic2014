@@ -9,7 +9,7 @@ from Products.feedfeeder.interfaces.consumer import IFeedConsumer
 from Products.feedfeeder.interfaces.container import IFeedsContainer
 from Products.feedfeeder.browser.feed import UpdateFeedItems, IUpdateFeedItems
 
-from Products.zhkath.config import TAG_STARTSEITE
+from zhkath.basic2014.config import TAG_STARTSEITE
 
 from Products.statusmessages.interfaces import IStatusMessage
 
@@ -18,7 +18,7 @@ from Products.feedfeeder import _
 logger = logging.getLogger("feedfeeder_kath")
 
 
-class UpdateFeedItemsKath(UpdateFeedItems):
+class UpdateFeedItemsZhkath(UpdateFeedItems):
     """A view for updating the feed items in a feed folder.
     """
 

@@ -17,24 +17,24 @@
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
-      title="zhkath"
+      title="zhkath.basic2014"
       directory="profiles/default"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
   <genericsetup:importStep
-      name="zhkath.various"
-      title="zhkath: miscellaneous import steps"
+      name="zhkath.basic2014.various"
+      title="zhkath.basic2014: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
-      handler="Products.zhkath.setuphandlers.setupVarious">
+      handler="zhkath.basic2014.setuphandlers.setupVarious">
     <depends name="skins"/>
   </genericsetup:importStep>
 
 
     <browser:page
         for="*"
-        name="rescale_images"
+        name="rescale_images_old"
         permission="cmf.ManagePortal"
         class=".images.RescaleImages"
         />
