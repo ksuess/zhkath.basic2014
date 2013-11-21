@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="imaging_properties" meta_type="Plone Property Sheet">
+  <property name="title">Image handling properties</property>
+  <property name="allowed_sizes" type="lines">
+   <element value="large 768:768"/>
+   <element value="preview 400:400"/>
+   <element value="mini 200:200"/>
+   <element value="thumb 128:128"/>
+   <element value="tile 64:64"/>
+   <element value="icon 32:32"/>
+   <element value="listing 16:16"/>
+   <!-- Include our custom sizes here -->
+   <element value="teaser 225:225"/>
+   <element value="portlethorizontal 227:227"/>
+   <element value="portletvertical 328:328"/>
+   <element value="fullwidth 473:473"/>
+   <element value="banner 977:977"/>
+  </property>
+ </object>
+ 
+  <object name="site_properties">
+    <property name="hidden_subjects" type="lines" purge="False">
+     <element value="00_Aktuell"/>
+     <element value="00_Begrenzt"/>
+     <element value="00_Begrenzt_14Tage"/>
+     <element value="00_Begrenzt_7Tage"/>
+     <element value="00_Flash"/>
+     <element value="00_Medienspiegel"/>
+     <element value="00_Medienspiegel_front"/>
+     <element value="00_SyRa_Finanzwesen"/>
+     <element value="00_teaser_random"/>
+     <element value="01_SyRa_Antrag_Synode"/>
+     <element value="01_SyRa_Beschluss"/>
+    </property>
+    
+    <property name="showSocialViewlet" type="boolean" purge="False">True</property>
+  </object>
+ 
+</object>

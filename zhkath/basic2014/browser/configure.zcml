@@ -1,0 +1,132 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="zhkath">
+    
+  <include file="overrides.zcml" />
+  
+  <include package="plone.app.contentmenu" />
+
+  <!-- 'zhkath' Zope 3 browser layer
+    Register views, viewlets and resources for this layer to make sure
+    they only apply to the 'zhkath' theme.
+    You can also use this layer to override default Plone browser views
+    and viewlets only within the 'zhkath' theme.
+  -->
+  
+  <!-- <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="zhkath"
+      /> -->
+  
+  <!-- Viewlets registration -->
+
+  <browser:viewlet
+      name="plone.footer"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".viewlets.zhkathFooter"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+      
+  <browser:viewlet
+      name="plone.belowcontenttitle.documentbyline"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      class=".viewlets.zhkathDocumentBylineViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+      
+  <browser:viewlet
+      name="plone.belowcontenttitle.documentbyline"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class=".viewlets.zhkathDocumentBylineViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="plone.belowcontenttitle.keywords"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      layer=".interfaces.IThemeSpecific"
+      template="keywords.pt"
+      permission="zope2.View"
+      />
+      
+    <browser:viewlet
+        name="plone.headerimage"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.zhkathHeaderimage"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+        />
+        
+    <browser:viewlet
+        name="plone.headeractions"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.zhkathHeaderactions"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+        />
+        
+        <browser:viewlet
+            name="zhkath.social"
+            manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+            layer=".interfaces.IThemeSpecific"
+            class=".viewlets.zhkathSocial"
+            permission="zope2.View"
+            />
+
+  <!-- Zope 3 browser resources -->
+
+  <!-- Resource directory for images
+    See zhkath/browser/images/README.txt
+    for more information about registering images as Zope 3 browser
+    resources.
+  -->
+  <browser:resourceDirectory
+      name="zhkath.images"
+      directory="images"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+  <!-- Resource directory for stylesheets
+    See zhkath/browser/stylesheets/README.txt
+    for more information about registering stylesheets as Zope 3 browser
+    resources.
+  -->
+  <browser:resourceDirectory
+      name="zhkath.stylesheets"
+      directory="stylesheets"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+
+      <browser:page
+          for="*"
+          name="utils"
+          class=".views.UtilityView"
+          permission="zope2.View"
+          allowed_attributes="getImagesUrls"
+          />
+          
+          
+    <!-- Feedfeeder -->
+    
+    <browser:page
+        name="update_feed_items_kath"
+        class=".feed.UpdateFeedItemsKath"
+        for="Products.feedfeeder.interfaces.container.IFeedsContainer"
+        allowed_interface=".feed.IUpdateFeedItems"
+        permission="feedfeeder.UpdateFeed"
+        />
+        
+</configure>

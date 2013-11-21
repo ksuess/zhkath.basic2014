@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="zhkath">
+
+  <!-- File System Directory Views registration -->
+  <cmf:registerDirectory name="zhkath_images"/>
+  <cmf:registerDirectory name="zhkath_templates"/>
+  <cmf:registerDirectory name="zhkath_styles"/>
+  <cmf:registerDirectory name="zhkath_scripts"/>
+  <!--<cmf:registerDirectory name="zhkath_migration"/>-->
+
+</configure>

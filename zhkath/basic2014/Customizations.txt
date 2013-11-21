@@ -1,0 +1,147 @@
+zope.interface.interface-plone.abovecontenttitle.documentactions 
+===========================================================================
+
+<div tal:omit-tag=""
+     i18n:domain="plone">
+
+    <div class="visualClear"><!-- --></div>
+
+    <div class="documentActions">
+        <tal:docactions tal:condition="view/actions">
+
+            <h5 class="hiddenStructure" i18n:translate="heading_document_actions">
+              Document Actions
+            </h5>
+
+            <ul tal:define="normalizeString nocall: context/@@plone/normalizeString">
+                  <li tal:repeat="daction view/actions"
+                      tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+                      <a href=""
+                         tal:attributes="href daction/url;
+                                         title daction/description"
+                         tal:content="daction/title">
+                      </a>
+                  </li>
+            </ul>
+        </tal:docactions>
+
+        <div tal:replace="structure provider:plone.documentactions" />
+
+    </div>
+</div>
+
+
+
+zope.interface.interface-plone.footer
+==========================================
+
+<div metal:define-macro="portal_footer"
+     i18n:domain="plone"
+     class="row"
+     tal:define="portal string:${context/@@plone_portal_state/navigation_root_url}">
+    <div class="cell width-full position-0">
+
+        <div id="portal-footer">
+
+<ul id="portal-footer-footeractions"
+    i18n:domain="plone">
+    
+    <li class="firstitem">&copy; <tal:year tal:content="view/year" /> <span i18n:translate="copyrightstring" tal:omit-tag="">Katholische Kirche im Kanton Zuerich</span></li>
+
+	<tal:block tal:condition="view/footer_actions">
+    <li tal:repeat="saction view/footer_actions"
+        tal:attributes="id string:footeraction-${saction/id}"><a
+           href=""
+           tal:define="title saction/title;
+                       id saction/id;"
+           i18n:attributes="title"
+           i18n:translate=""
+           tal:content="title"
+           tal:attributes="href saction/url;
+                           title title;"
+           >Footer action</a></li>
+	</tal:block>
+</ul>
+
+<ul id="portal-footer-useractions"
+    tal:condition="view/user_actions"
+    i18n:domain="plone">
+
+    <li tal:repeat="saction view/user_actions"
+        tal:attributes="id string:useraction-${saction/id}"><a
+           href=""
+           tal:define="title saction/title;
+                       id saction/id;"
+           i18n:attributes="title"
+           i18n:translate=""
+           tal:content="title"
+           tal:attributes="href saction/url;
+                           title title;"
+           >User action</a></li>
+</ul>
+
+<div id="footer-menu">
+<ul>
+<li class="header">
+    <a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales">Seelsorge - Soziales</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/gottesdienste-und-sakramente/pfarrei_homepages">Pfarreien</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/spiritualitaet">Spiritualität</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/angebote">Fachstellen und Institutionen</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/freiwilligenarbeit">Freiwilligenarbeit</a></li>
+
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/gottesdienste-und-sakramente">Gottesdienste und Sakramente</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/familien">Ehe und Familie</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/seelsorge-soziales/migrantenseelsorge">Migrantenseelsorge</a></li>
+
+</ul>
+<ul>
+<li class="header">
+    <a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur">Bildung - Kultur</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur/bildungsangebote-und-kurse">Bildungsangebote</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur//veranstaltungshinweise">Veranstaltungshinweise</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur/paulus-akademie_n">Paulus-Akademie</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur/religionspaedagogik_n">Religionspädagogik</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur/forum_n">Forum Pfarrblatt</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/bildung-kultur">Alle Angebote</a></li>
+</ul>
+<ul>
+<li class="header">
+    <a href="" i18n:translate="" tal:attributes="href string:${portal}/oekumene">Ökumene</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/oekumene/agck_n">AGCK</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/oekumene/oekumenischer-bettagsbrief">Ökumenischer Bettagsbrief</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/oekumene/oekumenischer-kreuzweg-zuerich">Ökumenischer Kreuzweg</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/oekumene/telebibel_n">Telebibel</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/oekumene/angebote">Weitere Angebote</a></li>
+</ul>
+<ul>
+<li class="header">
+    <a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation">Organisation</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/gv">Generalvikariat</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/synodalrat">Synodalrat</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/synode">Synode</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/pfarreien">Pfarreien und Kirchgemeinden</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/rekurskommission">Rekurskommission</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/personalombudsstelle">Personalombusstelle</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/organisation/organigramme">Organigramme</a></li>
+</ul>
+
+<ul class="lastitem">
+<li class="header">
+    <a href="" i18n:translate="" tal:attributes="href string:${portal}/service">Service</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/service/adressen">Adressen</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/service/publikationen">Publikationen</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/service/medienspiegel">Medienspiegel</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/service/stellenmarkt">Stellenmarkt</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/service/bildungsangebote">Bildungsangebote</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/newsletter">Newsletter</a></li>
+<li><a href="" i18n:translate="" tal:attributes="href string:${portal}/kontakt">Kontakt</a></li>
+</ul>
+</div>
+
+
+
+
+        </div>
+
+    </div>
+</div>

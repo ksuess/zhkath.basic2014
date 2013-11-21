@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration for the portal_skins tool -->
+
+<!-- Change the value of these parameters to modify portal_skins behavior:
+     - allow_any: change it to True if you want users to be able to select the
+       skin to use from their personal preferences management page. In the
+       ZMI, this value is known as 'Skin flexibility'.
+     - cookie_persistence: change it to True if you want to make the skin cookie
+       persist indefinitely. In the ZMI, this value is known as 'Skin Cookie
+       persistence'.
+       -->
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="zhkath">
+
+ <!-- This list registers the folders that are stored in the skins directory
+      of your product (on the filesystem) as Filesystem Directory Views within
+      the portal_skins tool, so that they become usable as skin layers.
+      -->
+ <object name="zhkath_images"
+    meta_type="Filesystem Directory View"
+    directory="Products.zhkath:skins/zhkath_images"/>
+ <object name="zhkath_templates"
+    meta_type="Filesystem Directory View"
+    directory="Products.zhkath:skins/zhkath_templates"/>
+ <object name="zhkath_styles"
+    meta_type="Filesystem Directory View"
+    directory="Products.zhkath:skins/zhkath_styles"/>
+ <object name="zhkath_scripts"
+    meta_type="Filesystem Directory View"
+    directory="Products.zhkath:skins/zhkath_scripts"/>
+ <!--<object name="zhkath_migration"
+    meta_type="Filesystem Directory View"
+    directory="Products.zhkath:skins/zhkath_migration"/>-->
+
+
+ <!-- A skin-path in this file corresponds to a Skin Selection in the
+     'Properties' tab of the portal_skins tool, in the ZMI.
+     You can define for each new skin path the layers that it holds. A new
+     skin can be based on another existing one by using the 'based-on'
+     attribute.
+     The definition of a layer accepts these parameters:
+       - name: quite self explanatory, the name of the layer.
+       - insert-before: name of the layer before which it must be added.
+       - insert-after: name of the layer after which it must be added.
+       Note: insert-before (and -after) accepts the value "*" which means
+       "all".
+       -->
+ <skin-path name="zhkath" based-on="Sunburst Theme">
+  <layer name="zhkath_images"
+     insert-after="custom"/>
+  <layer name="zhkath_templates"
+     insert-after="zhkath_images"/>
+  <layer name="zhkath_styles"
+     insert-after="zhkath_templates"/>
+  <layer name="zhkath_scripts"
+     insert-after="zhkath_styles"/>
+  <!--<layer name="zhkath_migration"
+     insert-after="zhkath_scripts"/>-->
+ </skin-path>
+
+</object>

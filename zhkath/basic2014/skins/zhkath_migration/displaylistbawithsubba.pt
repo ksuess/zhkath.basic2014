@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title tal:content="template/title">The title</title>
+  </head>
+  <body>
+    
+    <h2>test</h2>
+
+
+<div tal:define="bas context/listbawithsubba">
+    <tal:block tal:repeat="ba bas">
+        <div tal:content="ba"/>
+    </tal:block>
+</div>
+
+  </body>
+</html>

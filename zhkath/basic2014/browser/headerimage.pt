@@ -1,0 +1,10 @@
+<tal:block condition="view/show"
+           i18n:domain="plone">
+	           
+	<div metal:define-macro="headerimage" tal:define="image view/headerimage" tal:condition="image">
+		<div id="headerimage">
+			<img tal:replace="structure python:image.getObject().tag(scale='banner')"/>
+		</div>
+	</div>
+
+</tal:block>

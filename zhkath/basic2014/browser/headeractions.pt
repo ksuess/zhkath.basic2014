@@ -1,0 +1,16 @@
+<ul id="portal-headeractions"
+    tal:condition="view/header_actions"
+    i18n:domain="plone">
+
+    <li tal:repeat="saction view/header_actions"
+        tal:attributes="id string:headeraction-${saction/id}"><a
+           href=""
+           tal:define="title saction/title;
+                       id saction/id;"
+           i18n:attributes="title"
+           i18n:translate=""
+           tal:content="title"
+           tal:attributes="href saction/url;
+                           title title;"
+           >Header action</a></li>
+</ul>

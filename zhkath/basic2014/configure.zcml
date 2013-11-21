@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="zhkath">
+    
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <include package=".browser" />
+  <include package=".content" />
+  <include package=".portlets" />
+  <include file="skins.zcml" />
+  
+  <!-- Register the installation GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="zhkath"
+      directory="profiles/default"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="zhkath.various"
+      title="zhkath: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="Products.zhkath.setuphandlers.setupVarious">
+    <depends name="skins"/>
+  </genericsetup:importStep>
+
+
+    <browser:page
+        for="*"
+        name="rescale_images"
+        permission="cmf.ManagePortal"
+        class=".images.RescaleImages"
+        />
+
+
+    <!--<subscriber
+        for="Products.feedfeeder.interfaces.item.IFeedItem
+               zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".utilities.feeditem_created_handler"
+        />-->
+            
+</configure>

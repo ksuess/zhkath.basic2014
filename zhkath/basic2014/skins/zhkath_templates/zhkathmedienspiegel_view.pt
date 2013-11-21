@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+    
+<metal:content-core fill-slot="content-core">
+    <metal:block define-macro="content-core"
+          tal:define="kssClassesView context/@@kss_field_decorator_view; 
+                      getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                      templateId template/getId;
+                      text python:context.getTextToDisplay();
+                      len_text python:len(text.strip())">
+
+
+        <div class="newsImageContainer zhkathImageContainer"
+             tal:condition="context/getImage|nothing">
+            <a href="#"
+               tal:define="here_url context/@@plone_context_state/object_url;"
+               tal:attributes="href string:$here_url/image/image_view_fullscreen"
+               id="parent-fieldname-image">
+               <img tal:replace="structure python: context.tag(scale='fullwidth', css_class='newsImage')" src="" alt="" />
+            </a>
+            <p class="discreet" tal:condition="context/imageCaption|nothing">
+              <metal:field use-macro="python:context.widget('imageCaption', mode='view')">
+              Image Caption
+              </metal:field>
+            </p>
+        </div>
+
+        <p tal:define="is_editable context/@@plone_context_state/is_editable"
+           tal:condition="python: not len_text and is_editable"
+           i18n:translate="no_body_text"
+           class="discreet">
+            This item does not have any body text, click the edit tab to change it.
+        </p>
+
+        <table><tr><td>
+        <div metal:define-macro="text-field-view"
+             id="parent-fieldname-text" class="plain"
+             tal:condition="text">
+            <div metal:define-slot="inside" tal:replace="structure text">The body</div>
+        </div>
+        </td></tr></table>
+        
+        <div tal:replace="nothing">
+        	<span i18n:translate="fullPublishTime_label">Full publish time:</span>
+        	<metal:field use-macro="python:context.widget('fullPublishTime', mode='view')">
+             Full publish time
+        	</metal:field>
+        </div>
+        
+        <dl tal:condition="context/remote_url" id="sourceBox">
+            <dt i18n:translate="link_source">Source:</dt>
+            <dd>
+               <a href="#" tal:attributes="href context/remote_url" class="external-link"
+                        tal:content="python:context.getRemoteUrlTitle() and context.getRemoteUrlTitle() or context.getRemoteUrl()[7:]">remote url</a>
+            </dd>
+        </dl>
+        
+    </metal:block>
+</metal:content-core>
+
+</body>
+</html>
+
