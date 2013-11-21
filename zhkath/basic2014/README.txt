@@ -18,7 +18,7 @@ Neu: Nur den ersten Post anzeigen.
 
 TODO 
 - feeditem_created_handler: remove tag from all other FeedItems
-- Aktualisierung der Posts in Plone automatisieren mit clock-Server auf http://127.0.0.1:10083/www.zh.kath.ch/blogfeed/update_feed_items
+- Aktualisierung der Posts in Plone automatisieren mit clock-Server auf http://127.0.0.1:10083/www.zh.kath.ch/blogfeed/update_feed_items_zhkath
 - 
 
 
