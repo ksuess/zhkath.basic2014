@@ -24,7 +24,11 @@ class UtilityView(BrowserView):
     def getImageUrl(self, link):
         # print "getImageUrl", link
         text = ""
-        f = urllib2.urlopen(link)
+        try:
+            f = urllib2.urlopen(link)
+        except urllib2.HTTPError, e:
+            log.error(str(e))
+            return None
         text = f.read(20000)
         
         soup = BeautifulSoup(text)
