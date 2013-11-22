@@ -11,7 +11,7 @@ results=[]
 if not batch:
     return results
 
-batchlist = list(batch) #[b for b in batch]
+batchlist = [b for b in batch]
 lenbatch = len(batchlist)
 
 # put FeedItem on position 01
@@ -20,7 +20,15 @@ lenbatch = len(batchlist)
 ffis = [b for b in batchlist if b.portal_type=="FeedFeederItem"]
 ffi = ffis and ffis[0] or None
 if ffi:
-    ind = batchlist.index(ffi)
+    i = 0
+    ind = 0
+    for b in batchlist:
+        if b == ffi:
+            ind = i
+            continue
+        i += 1
+            
+    #     ind = batchlist.index(ffi)
     del batchlist[ind]
     batchlist.insert(1,ffi)
 

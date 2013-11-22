@@ -81,7 +81,8 @@
                                    number repeat/item/number;
                                    end python: number==2 and 'teaserLastRowItem' or '';
                                    rowindex python:repeat['row'].index;
-                                   itemindex python:repeat['item'].index">
+                                   itemindex python:repeat['item'].index;
+                                   item_link item/getLink;">
 
                 <div class="tileItem visualIEFloatFix" 
                 	 tal:attributes="class python:'tileItem visualIEFloatFix ' + end + (item_type=='FeedFeederItem' and ' FeedFeederItem' or ' NewsItem') + ' newsitem' + str(rowindex)+str(itemindex)"
@@ -108,15 +109,14 @@
                     </div>
                     
                     <tal:feedfeederimage tal:condition="python:item_type=='FeedFeederItem'">                        
-                        <tal:define tal:define="getImagesUrls nocall:context/@@zhkath_utils/getImagesUrls;
-                                    item_text python:item_object.getText();
-                                    imageurls python:getImagesUrls(item_text)">
+                        <tal:define tal:define="getImageUrl nocall:context/@@zhkath_utils/getImageUrl;
+                                    imageurl python:getImageUrl(item_link)">
                             <a href="#" target="_blank" class="feedfeeder_image"
                                tal:attributes="href item_url">
-                                 <img tal:condition="not:imageurls" src="platzhalter_blog.jpg" alt="Blog-Item" />
-                                 <tal:imageurls tal:condition="imageurls">
+                                 <img tal:condition="not:imageurl" src="platzhalter_blog.jpg" alt="Blog-Item" />
+                                 <tal:imageurls tal:condition="imageurl">
                                       <img src="" alt=""
-                                          tal:attributes="src python:imageurls[0]"  alt="Blog-Item" />
+                                          tal:attributes="src imageurl"  alt="Blog-Item" />
                                  </tal:imageurls>
                             </a>
                         </tal:define>

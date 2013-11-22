@@ -491,7 +491,7 @@ margin-right: 0px;
 
 div.tileItem.FeedFeederItem .feedfeeder_icon {
 position: absolute;
-top: 67px;
+top: 85px;
 left: -15px;
 }
 
@@ -499,6 +499,7 @@ div.tileItem.FeedFeederItem .feedfeeder_image {
 display: inline-block;
 height: 140px;
 overflow: hidden;
+background-color: #f5f5f5;
 }
 div.tileItem.FeedFeederItem .feedfeeder_image img {
 width: 225px;

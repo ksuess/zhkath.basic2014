@@ -1,5 +1,6 @@
 import re
 from bs4 import BeautifulSoup
+import urllib2
 from Products.Five import BrowserView
 from zope.component import getMultiAdapter
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -19,7 +20,14 @@ class UtilityView(BrowserView):
                                                name=u'plone_portal_state')
         self.navigation_root_url = self.portal_state.navigation_root_url()
 
-    def getImagesUrls(self, text):
+    # @memoize
+    def getImageUrl(self, link):
+        # print "getImageUrl", link
+        text = ""
+        f = urllib2.urlopen(link)
+        text = f.read(20000)
+        
         soup = BeautifulSoup(text)
-        allimages = [img['src'] for img in soup.findAll('img', src=True)]  
-        return allimages
+        allimages = [img['src'] for img in soup.find_all('img', class_="wp-post-image", src=True, limit=2)] 
+        # print allimages 
+        return allimages and allimages[0] or None
