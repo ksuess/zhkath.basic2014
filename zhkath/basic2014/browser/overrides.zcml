@@ -6,6 +6,7 @@
 
 
     <browser:page
+        zcml:condition="installed plone.app.search"
         name="search"
         class="plone.app.search.browser.Search"
         permission="zope2.View"
