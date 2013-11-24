@@ -81,8 +81,7 @@
                                    number repeat/item/number;
                                    end python: number==2 and 'teaserLastRowItem' or '';
                                    rowindex python:repeat['row'].index;
-                                   itemindex python:repeat['item'].index;
-                                   item_link item/getLink;">
+                                   itemindex python:repeat['item'].index;">
 
                 <div class="tileItem visualIEFloatFix" 
                 	 tal:attributes="class python:'tileItem visualIEFloatFix ' + end + (item_type=='FeedFeederItem' and ' FeedFeederItem' or ' NewsItem') + ' newsitem' + str(rowindex)+str(itemindex)"
@@ -110,7 +109,8 @@
                     
                     <tal:feedfeederimage tal:condition="python:item_type=='FeedFeederItem'">                        
                         <tal:define tal:define="getImageUrl nocall:context/@@zhkath_utils/getImageUrl;
-                                    imageurl python:getImageUrl(item_link)">
+                                    imageurl python:getImageUrl(item_link);
+                                    item_link item/getLink | nothing;">
                             <a href="#" target="_blank" class="feedfeeder_image"
                                tal:attributes="href item_url">
                                  <img tal:condition="not:imageurl" src="platzhalter_blog.jpg" alt="Blog-Item" />
