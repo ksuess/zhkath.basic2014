@@ -122,14 +122,14 @@
     <!-- Feedfeeder -->
     
     <permission
-      id="zhkath.basic2014.UpdateFeed"
-      title="zhkath.basic2014: Update feed"
+      id="Products.zhkath.UpdateFeed"
+      title="Products.zhkath: Update feed"
       />
     <browser:page
         name="update_feed_items_zhkath"
         class=".feed.UpdateFeedItemsZhkath"
         for="Products.feedfeeder.interfaces.container.IFeedsContainer"
-        permission="zhkath.basic2014.UpdateFeed"
+        permission="Products.zhkath.UpdateFeed"
         allowed_interface=".feed.IUpdateFeedItems"
         layer=".interfaces.IThemeSpecific"
         />

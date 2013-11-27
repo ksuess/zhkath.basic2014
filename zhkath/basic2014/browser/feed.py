@@ -9,7 +9,7 @@ from Products.feedfeeder.interfaces.consumer import IFeedConsumer
 from Products.feedfeeder.interfaces.container import IFeedsContainer
 from Products.feedfeeder.browser.feed import UpdateFeedItems, IUpdateFeedItems
 
-from zhkath.basic2014.config import TAG_STARTSEITE
+from Products.zhkath.config import TAG_STARTSEITE
 
 from Products.statusmessages.interfaces import IStatusMessage
 

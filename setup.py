@@ -3,7 +3,7 @@ import os
 
 version = '1.0'
 
-setup(name='zhkath.basic2014',
+setup(name='Products.zhkath',
       version=version,
       description="Theme and Features for zh.kath.ch",
       long_description=open("README.txt").read() + "\n" +

@@ -1,7 +1,7 @@
 Introduction
 ============
 
-zhkath.basic2014
+Products.zhkath
 
 Theme und Datentypen
 

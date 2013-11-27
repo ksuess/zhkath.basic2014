@@ -17,17 +17,17 @@
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
-      title="zhkath.basic2014"
+      title="Products.zhkath"
       directory="profiles/default"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
   <genericsetup:importStep
-      name="zhkath.basic2014.various"
-      title="zhkath.basic2014: miscellaneous import steps"
+      name="Products.zhkath.various"
+      title="Products.zhkath: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
-      handler="zhkath.basic2014.setuphandlers.setupVarious">
+      handler="Products.zhkath.setuphandlers.setupVarious">
     <depends name="skins"/>
   </genericsetup:importStep>
 
