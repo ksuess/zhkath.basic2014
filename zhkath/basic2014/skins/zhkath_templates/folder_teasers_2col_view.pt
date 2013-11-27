@@ -113,11 +113,11 @@
                                     imageurl python:getImageUrl(item_link);">
                             <a href="#" target="_blank" class="feedfeeder_image"
                                tal:attributes="href item_url">
-                                 <img tal:condition="not:imageurl" src="platzhalter_blog.jpg" alt="Blog-Item" />
-                                 <tal:imageurls tal:condition="imageurl">
+                                 <img   src="platzhalter_blog.jpg" alt="Blog-Item" />
+                                 <!--<tal:imageurls tal:condition="imageurl">
                                       <img src="" alt=""
                                           tal:attributes="src imageurl"  alt="Blog-Item" />
-                                 </tal:imageurls>
+                                 </tal:imageurls>-->
                             </a>
                         </tal:define>
                     </tal:feedfeederimage>
